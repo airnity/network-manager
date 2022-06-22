@@ -14,7 +14,7 @@ import (
 )
 
 // Main configuration folder path.
-var mainConfigFolderPath = "conf/"
+var mainConfigFolderPath = "/etc/router-sidecar/conf"
 
 var validate = validator.New()
 
