@@ -1,0 +1,37 @@
+name: release
+on:
+  workflow_dispatch:
+    inputs:
+      extra-release-args:
+        required: false
+        default: ""
+        description: "Extra args to pass to standard-version"
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # gives standard-version access to all previous commits
+      - name: generate tag and release body
+        run: |
+          git config user.name Github Releaser
+          git config user.email alexandre.ledit@airnity.com
+          npx standard-version -i RELEASE_BODY.md -t "" --skip.commit --skip.tag ${{ github.event.inputs.extra-release-args }}
+          npx standard-version -t "" ${{ github.event.inputs.extra-release-args }}
+      - name: publish tag
+        id: publish_tag
+        run: |
+          git push --follow-tags
+          echo ::set-output name=tag_name::$(git describe HEAD --abbrev=0)
+      - name: create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_name: Release ${{ steps.publish_tag.outputs.tag_name }}
+          tag_name: ${{ steps.publish_tag.outputs.tag_name }}
+          body_path: RELEASE_BODY.md

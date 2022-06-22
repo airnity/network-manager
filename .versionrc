@@ -1,0 +1,52 @@
+{
+  "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n",
+  "issuePrefixes": [
+    "tid#"
+  ],
+  "issueUrlFormat": "https://airnity.fibery.io/fibery/space/Engineering/database/Task#Task/{{id}}",
+  "types": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "chore",
+      "section": "Chore",
+      "hidden": false
+    },
+    {
+      "type": "docs",
+      "section": "Documentation",
+      "hidden": false
+    },
+    {
+      "type": "style",
+      "section": "Style",
+      "hidden": false
+    },
+    {
+      "type": "refactor",
+      "section": "Refactor",
+      "hidden": false
+    },
+    {
+      "type": "perf",
+      "section": "Performance",
+      "hidden": false
+    },
+    {
+      "type": "test",
+      "section": "Tests",
+      "hidden": false
+    },
+    {
+      "type": "ci",
+      "section": "Continuous Integration",
+      "hidden": false
+    }
+  ]
+}
