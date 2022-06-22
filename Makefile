@@ -120,7 +120,7 @@ endif
 # Uncomment to use gox instead of goreleaser
 ifndef HAS_GOX
 	@echo "=> Installing gox"
-	$(GO) get -u github.com/mitchellh/gox
+	$(GO) install github.com/mitchellh/gox@latest
 	$(GO) mod tidy
 endif
 	$(GO) mod download
