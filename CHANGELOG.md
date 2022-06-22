@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/airnity/router-sidecar/compare/1.0.0...1.1.0) (2022-06-22)
+
+
+### Features
+
+* Change config file path ([6572dbd](https://github.com/airnity/router-sidecar/commit/6572dbda9a97b6b86ce61fc0e2199149ea1a0fca))
+
 ## 1.0.0 (2022-06-22)
 
 
