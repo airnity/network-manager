@@ -1,4 +1,4 @@
-TARGETS           ?= linux/amd64 linux/arm linux/arm64 darwin/amd64 darwin/arm64
+TARGETS           ?= linux/amd64 darwin/arm64
 PROJECT_NAME	  := router-sidecar
 PKG				  := airnity.com/$(PROJECT_NAME)
 
