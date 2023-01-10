@@ -72,6 +72,11 @@ func (c *client) createTunnel(tunnel *config.Tunnel) error {
 	if err != nil {
 		return err
 	}
+	rpFilterCmd := fmt.Sprintf("sysctl -w net.ipv4.conf.%s.rp_filter=0", tunnel.Name)
+	_, err = c.execTunnelCmd(tunnel, rpFilterCmd)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
