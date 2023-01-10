@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/airnity/router-sidecar/compare/1.1.0...1.2.0) (2023-01-10)
+
+
+### Features
+
+* Add rp_filter=0 on gre tunnels ([304b080](https://github.com/airnity/router-sidecar/commit/304b080dac506e8c946c34ae97b0c8427c8fa1d9))
+
 ## [1.1.0](https://github.com/airnity/router-sidecar/compare/1.0.0...1.1.0) (2022-06-22)
 
 
