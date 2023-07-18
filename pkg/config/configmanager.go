@@ -25,6 +25,10 @@ type configmanager struct {
 }
 
 func (ctx *configmanager) Load() error {
+	// Check CONFIG_PATH environment variable
+	if os.Getenv("CONFIG_PATH") != "" {
+		mainConfigFolderPath = os.Getenv("CONFIG_PATH")
+	}
 	// List files
 	files, err := ioutil.ReadDir(mainConfigFolderPath)
 	if err != nil {

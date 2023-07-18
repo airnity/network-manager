@@ -1,0 +1,19 @@
+natRules:
+  destNat:
+    - destination: 193.163.183.254 #required range or single IP
+      translatedIP: 10.96.131.130 #required single IP or "10.0.0.2-10.0.0.20" for multiple consecutive IPs
+      interface: tgw #required
+      # source: XXX #range or single IP
+      # port: 443
+      # proto: "tcp"
+#sudo iptables -t nat -A PREROUTING -i $interface -p $proto -d $destination -s $source --dport $port -j DNAT --to-destination $translatedDestIP
+
+
+  sourceNat:
+    - destination: 10.96.131.130 #required range or single IP
+      translatedIP: 10.24.128.10 #required single IP or "10.0.0.2-10.0.0.20" for multiple consecutive IPs
+      interface: enX0 #required
+      # source: YYYY
+      # port: 443
+      # proto: "tcp"
+#sudo iptables -t nat -A POSTROUTING -d $destination -o $interface -p $proto --dport $port -j SNAT --to $translatedSourceIP
