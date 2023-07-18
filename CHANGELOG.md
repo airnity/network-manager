@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/airnity/router-sidecar/compare/1.2.0...1.3.0) (2023-07-18)
+
+
+### Features
+
+* **router-sidecar:** add support for NAT rules ([f095dee](https://github.com/airnity/router-sidecar/commit/f095dee082ac26abce3241373ca36c703b4a7a3a))
+
+
+### Bug Fixes
+
+* **vrf:** change logger parameter type from log.Logger to *log.Logger in NewClient function ([44a8f47](https://github.com/airnity/router-sidecar/commit/44a8f478043a4029f948d93bd3531aca3a5790e6))
+
+
+### Chore
+
+* **deps:** bump golang.org/x/text from 0.3.7 to 0.3.8 ([c7c669c](https://github.com/airnity/router-sidecar/commit/c7c669c8332264f422d6bc096b1b83b18e2ba20b))
+
 ## [1.2.0](https://github.com/airnity/router-sidecar/compare/1.1.0...1.2.0) (2023-01-10)
 
 
