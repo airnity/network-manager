@@ -48,7 +48,7 @@ func main() {
 			logger.SetFormatter(&log.TextFormatter{})
 		}
 	}
-	vrfClient := vrf.NewClient(cfgManager, *logger)
+	vrfClient := vrf.NewClient(cfgManager, logger)
 
 	vrfClient.Synchronize()
 }

@@ -14,7 +14,7 @@ import (
 
 type client struct {
 	cfg    config.Manager
-	logger log.Logger
+	logger *log.Logger
 }
 
 func (c *client) Synchronize() error {

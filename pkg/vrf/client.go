@@ -10,6 +10,6 @@ type Client interface {
 	Synchronize() error
 }
 
-func NewClient(cfgManager config.Manager, logger log.Logger) Client {
+func NewClient(cfgManager config.Manager, logger *log.Logger) Client {
 	return &client{cfg: cfgManager, logger: logger}
 }
