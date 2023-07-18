@@ -31,5 +31,4 @@ type NatRule struct {
 	TranslatedIP string `mapstructure:"translatedIP" validate:"required"`
 	Port         int    `mapstructure:"port"`
 	Proto        string `mapstructure:"proto"`
-	State        string `mapstructure:"state"`
 }
