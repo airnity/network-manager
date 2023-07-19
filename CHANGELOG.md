@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.3.1](https://github.com/airnity/router-sidecar/compare/1.3.0...1.3.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* **exec.go:** change log.Error to log.Panic for better error handling ([397b12a](https://github.com/airnity/router-sidecar/commit/397b12a43d9b790e30c7444b6411ca691fcaca48))
+
+
+### Refactor
+
+* **config.go:** remove unused 'State' field from NatRule struct ([688c1b5](https://github.com/airnity/router-sidecar/commit/688c1b51ec7b58213aff5cc29a4b2269046eb027))
+
 ## [1.3.0](https://github.com/airnity/router-sidecar/compare/1.2.0...1.3.0) (2023-07-18)
 
 
