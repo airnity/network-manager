@@ -61,30 +61,30 @@ func (c *client) Synchronize() error {
 
 func (c *client) createTunnel(tunnel *config.Tunnel) error {
 	addTunnelCmd := fmt.Sprintf("ip tunnel add %s mode gre remote %s local %s ttl 255", tunnel.Name, tunnel.Remote, tunnel.Local)
-	_, err := c.execTunnelCmd(tunnel, addTunnelCmd)
+	out, err := c.execTunnelCmd(tunnel, addTunnelCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not create tunnel: %s %s", out, err)
 	}
 	linkSetCmd := fmt.Sprintf("ip link set %s up", tunnel.Name)
-	_, err = c.execTunnelCmd(tunnel, linkSetCmd)
+	out, err = c.execTunnelCmd(tunnel, linkSetCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not set link up: %s %s", out, err)
 	}
 	addAddrCmd := fmt.Sprintf("ip addr add %s dev %s", tunnel.Addr, tunnel.Name)
-	_, err = c.execTunnelCmd(tunnel, addAddrCmd)
+	out, err = c.execTunnelCmd(tunnel, addAddrCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not add address: %s %s", out, err)
 	}
 	rpFilterCmd := fmt.Sprintf("sysctl -w net.ipv4.conf.%s.rp_filter=0", tunnel.Name)
-	_, err = c.execTunnelCmd(tunnel, rpFilterCmd)
+	out, err = c.execTunnelCmd(tunnel, rpFilterCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not set rp_filter: %s %s", out, err)
 	}
 	if tunnel.VRF != "" {
 		vrfCmd := fmt.Sprintf("ip link set dev %s master %s", tunnel.Name, tunnel.VRF)
-		_, err = c.execTunnelCmd(tunnel, vrfCmd)
+		out, err = c.execTunnelCmd(tunnel, vrfCmd)
 		if err != nil {
-			return err
+			return fmt.Errorf("could not set vrf: %s %s", out, err)
 		}
 	}
 	return nil
@@ -92,19 +92,19 @@ func (c *client) createTunnel(tunnel *config.Tunnel) error {
 
 func (c *client) deleteTunnel(tunnel *config.Tunnel) error {
 	addAddrCmd := fmt.Sprintf("ip addr del %s dev %s", tunnel.Addr, tunnel.Name)
-	_, err := c.execTunnelCmd(tunnel, addAddrCmd)
+	out, err := c.execTunnelCmd(tunnel, addAddrCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not delete address: %s %s", out, err)
 	}
 	linkSetCmd := fmt.Sprintf("ip link set %s down", tunnel.Name)
-	_, err = c.execTunnelCmd(tunnel, linkSetCmd)
+	out, err = c.execTunnelCmd(tunnel, linkSetCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not set link down: %s %s", out, err)
 	}
 	addTunnelCmd := fmt.Sprintf("ip tunnel del %s", tunnel.Name)
-	_, err = c.execTunnelCmd(tunnel, addTunnelCmd)
+	out, err = c.execTunnelCmd(tunnel, addTunnelCmd)
 	if err != nil {
-		return err
+		return fmt.Errorf("could not delete tunnel: %s %s", out, err)
 	}
 	return nil
 }
@@ -113,10 +113,7 @@ func (c *client) tunnelExists(tunnel *config.Tunnel) bool {
 	addAddrCmd := fmt.Sprintf("ip tunnel show %s", tunnel.Name)
 	out, err := c.execTunnelCmd(tunnel, addAddrCmd)
 	if err == nil {
-		if out == "" {
-			return false
-		}
-		return true
+		return out != ""
 	}
 	return false
 }
