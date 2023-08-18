@@ -4,6 +4,7 @@ import (
 	"airnity.com/router-sidecar/pkg/config"
 	"airnity.com/router-sidecar/pkg/gre"
 	"airnity.com/router-sidecar/pkg/nat"
+	"airnity.com/router-sidecar/pkg/vrf"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -50,9 +51,11 @@ func main() {
 		}
 	}
 
+	vrfClient := vrf.NewClient(cfgManager, logger)
 	greClient := gre.NewClient(cfgManager, logger)
 	natClient := nat.NewClient(cfgManager, logger)
 
+	vrfClient.Synchronize()
 	greClient.Synchronize()
 	natClient.Synchronize()
 }

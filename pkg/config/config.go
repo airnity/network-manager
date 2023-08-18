@@ -1,9 +1,15 @@
 package config
 
 type Config struct {
+	VRFs     []VRF      `mapstructure:"vrfs" validate:"required,dive"`
 	Tunnels  []Tunnel   `mapstructure:"tunnels" validate:"required,dive"`
 	NatRules NatRules   `mapstructure:"natRules" validate:"required"`
 	Logs     *LogConfig `mapstructure:"logs"`
+}
+
+type VRF struct {
+	Name    string `mapstructure:"name" validate:"required"`
+	TableID int    `mapstructure:"tableID" validate:"required"`
 }
 
 type Tunnel struct {
