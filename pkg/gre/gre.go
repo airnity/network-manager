@@ -48,7 +48,10 @@ func (c *client) Synchronize() error {
 				}
 			} else {
 				c.logger.WithFields(fields).Info("Creating tunnel")
-				c.createTunnel(&tunnel)
+				err := c.createTunnel(&tunnel)
+				if err != nil {
+					c.logger.WithFields(fields).Error("Could not create tunnel", err)
+				}
 			}
 		}
 		c.logger.WithFields(fields).Info("Done")
