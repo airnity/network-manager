@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.4.1](https://github.com/airnity/router-sidecar/compare/1.4.0...1.4.1) (2023-08-18)
+
+
+### Bug Fixes
+
+* **gre.go:** handle error when creating tunnel in Synchronize() method ([ec63cf0](https://github.com/airnity/router-sidecar/commit/ec63cf0229c52f4ec98d103bcb920e2e6f29ed74))
+
 ## [1.4.0](https://github.com/airnity/router-sidecar/compare/1.3.1...1.4.0) (2023-08-18)
 
 
