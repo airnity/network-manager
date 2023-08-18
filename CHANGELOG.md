@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/airnity/router-sidecar/compare/1.3.1...1.4.0) (2023-08-18)
+
+
+### Features
+
+* **config.go:** add VRF field to Tunnel struct ([495a574](https://github.com/airnity/router-sidecar/commit/495a5742afbe6ee06d626d18be33e4200b37e382))
+* **router-sidecar:** add support for GRE tunnels ([2c704c0](https://github.com/airnity/router-sidecar/commit/2c704c00b37679839e74a692b7304aa07e72246c))
+* **router-sidecar:** add VRF support ([c85b7e8](https://github.com/airnity/router-sidecar/commit/c85b7e8d09c9f05f6796298a79240ebde23b8480))
+
+
+### Bug Fixes
+
+* **exec.go:** change log.Panic to log.Error and log the output of the command ([cb92515](https://github.com/airnity/router-sidecar/commit/cb9251566ff661cd39a7ddfeecd7aefc257b9427))
+
 ### [1.3.1](https://github.com/airnity/router-sidecar/compare/1.3.0...1.3.1) (2023-07-19)
 
 
