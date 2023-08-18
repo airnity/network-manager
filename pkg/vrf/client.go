@@ -1,4 +1,4 @@
-package gre
+package vrf
 
 import (
 	"airnity.com/router-sidecar/pkg/config"

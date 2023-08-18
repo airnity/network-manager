@@ -17,6 +17,7 @@ type Tunnel struct {
 	Remote string `mapstructure:"remote" validate:"required,ipv4"`
 	Local  string `mapstructure:"local" validate:"required,ipv4"`
 	Addr   string `mapstructure:"addr" validate:"required,cidrv4"`
+	VRF    string `mapstructure:"vrf"`
 	State  string `mapstructure:"state"`
 }
 

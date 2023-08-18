@@ -77,6 +77,13 @@ func (c *client) createTunnel(tunnel *config.Tunnel) error {
 	if err != nil {
 		return err
 	}
+	if tunnel.VRF != "" {
+		vrfCmd := fmt.Sprintf("ip link set dev %s master %s", tunnel.Name, tunnel.VRF)
+		_, err = c.execTunnelCmd(tunnel, vrfCmd)
+		if err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
