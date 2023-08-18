@@ -16,9 +16,12 @@ type client struct {
 
 func (c *client) Synchronize() error {
 	sourceNat := c.cfg.GetConfig().NatRules.SourceNat
-	funk.ForEach(sourceNat, func(rule config.NatRule) {
-		c.createSourceNatRule(&rule)
-	})
+	for _, rule := range sourceNat {
+		err := c.createSourceNatRule(&rule)
+		if err != nil {
+			return err
+		}
+	}
 
 	destNat := c.cfg.GetConfig().NatRules.DestNat
 	funk.ForEach(destNat, func(rule config.NatRule) {
