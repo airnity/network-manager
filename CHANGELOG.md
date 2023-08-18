@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.4.2](https://github.com/airnity/router-sidecar/compare/1.4.1...1.4.2) (2023-08-18)
+
+
+### Bug Fixes
+
+* **gre.go:** improve error handling and error messages in createTunnel and deleteTunnel functions ([dc8c92d](https://github.com/airnity/router-sidecar/commit/dc8c92da1751d1ace0b004268d7154f78b8a3dcf))
+
 ### [1.4.1](https://github.com/airnity/router-sidecar/compare/1.4.0...1.4.1) (2023-08-18)
 
 
