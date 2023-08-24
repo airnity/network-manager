@@ -1,0 +1,13 @@
+name: Network Manager Image CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-push:
+    uses: airnity/github-workflows/.github/workflows/build-push.yaml@main
+    secrets: inherit
+    with:
+      dockerfile-path: Dockerfile
+      ecr-repository: network-manager
