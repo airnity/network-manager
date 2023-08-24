@@ -42,15 +42,21 @@ func (c *client) Synchronize() error {
 				} else {
 					c.logger.WithFields(fields).Info("Tunnel already created, but outdated")
 					c.logger.WithFields(fields).Info("Deleting it")
-					c.deleteTunnel(tun)
+					err := c.deleteTunnel(&tunnel)
+					if err != nil {
+						c.logger.WithFields(fields).Error("Could not delete tunnel: ", err)
+					}
 					c.logger.WithFields(fields).Info("Recreating it")
-					c.createTunnel(&tunnel)
+					err = c.createTunnel(&tunnel)
+					if err != nil {
+						c.logger.WithFields(fields).Error("Could not create tunnel: ", err)
+					}
 				}
 			} else {
 				c.logger.WithFields(fields).Info("Creating tunnel")
 				err := c.createTunnel(&tunnel)
 				if err != nil {
-					c.logger.WithFields(fields).Error("Could not create tunnel", err)
+					c.logger.WithFields(fields).Error("Could not create tunnel: ", err)
 				}
 			}
 		}
