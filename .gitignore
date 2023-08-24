@@ -54,3 +54,4 @@ bin/*
 dist/*
 
 sample
+test.yaml
