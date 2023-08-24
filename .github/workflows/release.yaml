@@ -19,7 +19,7 @@ jobs:
       - name: setup golang
         uses: actions/setup-go@v3
         with:
-          go-version: '1.18.3'
+          go-version: "1.18.3"
       - name: build
         run: |
           make code/build-cross
@@ -50,8 +50,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./dist/bin/darwin-arm64/router-sidecar
-          asset_name: darwin-arm64/router-sidecar
+          asset_path: ./dist/bin/darwin-arm64/network-manager
+          asset_name: darwin-arm64/network-manager
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset
@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./dist/bin/linux-amd64/router-sidecar
-          asset_name: linux-amd64/router-sidecar
+          asset_path: ./dist/bin/linux-amd64/network-manager
+          asset_name: linux-amd64/network-manager
           asset_content_type: application/octet-stream

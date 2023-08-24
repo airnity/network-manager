@@ -1,7 +1,7 @@
 package vrf
 
 import (
-	"airnity.com/router-sidecar/pkg/config"
+	"airnity.com/network-manager/pkg/config"
 
 	log "github.com/sirupsen/logrus"
 )

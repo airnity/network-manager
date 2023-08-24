@@ -1,5 +1,5 @@
 TARGETS           ?= linux/amd64 darwin/arm64
-PROJECT_NAME	  := router-sidecar
+PROJECT_NAME	  := network-manager
 PKG				  := airnity.com/$(PROJECT_NAME)
 
 # go option

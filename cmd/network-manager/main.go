@@ -1,10 +1,10 @@
 package main
 
 import (
-	"airnity.com/router-sidecar/pkg/config"
-	"airnity.com/router-sidecar/pkg/gre"
-	"airnity.com/router-sidecar/pkg/nat"
-	"airnity.com/router-sidecar/pkg/vrf"
+	"airnity.com/network-manager/pkg/config"
+	"airnity.com/network-manager/pkg/gre"
+	"airnity.com/network-manager/pkg/nat"
+	"airnity.com/network-manager/pkg/vrf"
 
 	log "github.com/sirupsen/logrus"
 )

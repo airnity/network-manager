@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"airnity.com/router-sidecar/pkg/command"
-	"airnity.com/router-sidecar/pkg/config"
+	"airnity.com/network-manager/pkg/command"
+	"airnity.com/network-manager/pkg/config"
 	log "github.com/sirupsen/logrus"
 )
 

@@ -1,4 +1,4 @@
-module airnity.com/router-sidecar
+module airnity.com/network-manager
 
 go 1.18
 
