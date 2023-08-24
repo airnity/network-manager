@@ -81,11 +81,11 @@ func (c *client) createTunnel(tunnel *config.Tunnel) error {
 	if err != nil {
 		return fmt.Errorf("could not add address: %s %s", out, err)
 	}
-	rpFilterCmd := fmt.Sprintf("sysctl -w net.ipv4.conf.%s.rp_filter=0", tunnel.Name)
-	out, err = c.execTunnelCmd(tunnel, rpFilterCmd)
-	if err != nil {
-		return fmt.Errorf("could not set rp_filter: %s %s", out, err)
-	}
+	// rpFilterCmd := fmt.Sprintf("sysctl -w net.ipv4.conf.%s.rp_filter=0", tunnel.Name)
+	// out, err = c.execTunnelCmd(tunnel, rpFilterCmd)
+	// if err != nil {
+	// 	return fmt.Errorf("could not set rp_filter: %s %s", out, err)
+	// }
 	if tunnel.VRF != "" {
 		vrfCmd := fmt.Sprintf("ip link set dev %s master %s", tunnel.Name, tunnel.VRF)
 		out, err = c.execTunnelCmd(tunnel, vrfCmd)
