@@ -33,8 +33,7 @@ func (c *client) Synchronize() error {
 			} else {
 				c.logger.WithFields(fields).Info("Tunnel already deleted")
 			}
-		}
-		if tunnel.State == "present" {
+		} else {
 			if c.tunnelExists(&tunnel) {
 				tun, _ := c.getTunnelInfo(tunnel.Name)
 				if reflect.DeepEqual(tun, &tunnel) {
